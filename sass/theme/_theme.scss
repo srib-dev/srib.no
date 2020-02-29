@@ -1,1 +1,17 @@
 // This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+.site-main {
+    max-width: 100%;
+}
+
+article.sticky {
+    flex: 0 0 100% !important;
+}
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    article {
+        flex: 1 0 calc(33.33% - 10px);
+        margin: 5px;
+    }
+}
