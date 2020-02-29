@@ -1,8 +1,22 @@
 // This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+$primary-link-color: blue;
+
 $black: #212121;
+
 $breakpoint-medium: 768px;
 $breakpoint-small: 520px;
 $breakpoint-xtra-small: 375px;
+
+.nav-item {
+    text-transform: uppercase;
+    .nav-link {
+        opacity: 1 !important;
+        color: $primary-link-color !important; // TODO: Use actual primary-link colors
+        &:hover {
+            opacity: .75 !important;
+        }
+    }
+}
 
 .site-main {
     max-width: 100%;
