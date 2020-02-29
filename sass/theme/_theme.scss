@@ -1,17 +1,39 @@
 // This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+$black: #212121;
+$breakpoint-medium: 768px;
+$breakpoint-small: 520px;
+$breakpoint-xtra-small: 375px;
+
 .site-main {
     max-width: 100%;
 }
 
 article.sticky {
-    flex: 0 0 100% !important;
+    flex: 0 0 calc(100% - 10px) !important;
 }
 .articles {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
     article {
+        padding: 5px;
         flex: 1 0 calc(33.33% - 10px);
         margin: 5px;
+    }
+}
+
+@media (max-width: $breakpoint-medium) {
+    .articles {
+        article {
+            flex: 1 0 calc(50% - 10px);
+        }
+    }
+}
+
+@media (max-width: $breakpoint-small) {
+    .articles {
+        article {
+            flex: 1 0 calc(100% - 10px);
+        }
     }
 }
