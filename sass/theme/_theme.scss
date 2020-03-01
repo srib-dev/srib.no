@@ -4,6 +4,7 @@ $primary-link-color: blue;
 $black: #212121;
 
 $breakkpoint-xl:        1200px;
+$breakpoint-lg:         992px;
 $breakpoint-medium:     768px;
 $breakpoint-small:      520px;
 $breakpoint-xtra-small: 375px;
@@ -85,13 +86,19 @@ $breakpoint-xtra-small: 375px;
         .entry-header {
             
             h2.entry-title {
-                @include responsive-font(3vw, 20px, 32px);
+                @include responsive-font(3vw, 24px, 32px);
+            }
+        }
+
+        .entry-content {
+            p {
+                @include responsive-font(2.5vw, 13px, 16px);
             }
         }
     }
 }
 
-@media (max-width: $breakpoint-medium) {
+@media (max-width: $breakpoint-lg) {
     .articles {
         article {
             flex: 1 0 calc(50% - 10px);
