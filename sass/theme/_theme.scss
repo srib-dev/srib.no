@@ -3,9 +3,52 @@ $primary-link-color: blue;
 
 $black: #212121;
 
-$breakpoint-medium: 768px;
-$breakpoint-small: 520px;
+$breakkpoint-xl:        1200px;
+$breakpoint-medium:     768px;
+$breakpoint-small:      520px;
 $breakpoint-xtra-small: 375px;
+
+
+///
+/// Viewport sized typography with minimum and maximum values
+///
+/// @author Eduardo Boucas (@eduardoboucas)
+///
+/// @param {Number}   $responsive  - Viewport-based size
+/// @param {Number}   $min         - Minimum font size (px)
+/// @param {Number}   $max         - Maximum font size (px)
+///                                  (optional)
+/// @param {Number}   $fallback    - Fallback for viewport-
+///                                  based units (optional)
+///
+/// @example scss - 5vw font size (with 50px fallback), 
+///                 minumum of 35px and maximum of 150px
+///  @include responsive-font(5vw, 35px, 150px, 50px);
+///
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+    $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+    $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+    $min-breakpoint: $min / $responsive-unitless * 100;
+    
+    @media (max-#{$dimension}: #{$min-breakpoint}) {
+      font-size: $min;
+    }
+    
+    @if $max {
+      $max-breakpoint: $max / $responsive-unitless * 100;
+      
+      @media (min-#{$dimension}: #{$max-breakpoint}) {
+        font-size: $max;
+      }
+    }
+    
+    @if $fallback {
+      font-size: $fallback;
+    }
+    
+    font-size: $responsive;
+}
+
 
 .nav-item {
     text-transform: uppercase;
@@ -22,17 +65,29 @@ $breakpoint-xtra-small: 375px;
     max-width: 100%;
 }
 
-article.sticky {
-    flex: 0 0 calc(100% - 10px) !important;
-}
+
 .articles {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    //align-items: flex-end;
+
     article {
         padding: 5px;
         flex: 1 0 calc(33.33% - 10px);
         margin: 5px;
+
+        &.sticky {
+            display: block;
+            flex: 0 0 calc(100% - 10px) !important;
+            height: auto;
+        }
+
+        .entry-header {
+            
+            h2.entry-title {
+                @include responsive-font(3vw, 20px, 32px);
+            }
+        }
     }
 }
 
