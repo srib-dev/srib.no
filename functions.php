@@ -29,3 +29,13 @@ $understrap_includes = array(
 foreach ( $understrap_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
+
+function register_my_menus() {
+	register_nav_menus(
+	array(
+	 'resources-menu' => __( 'Resources menu' ),
+	 'social-menu' => __( 'Social menu' )
+	 )
+	 );
+	}
+	add_action( 'init', 'register_my_menus' );

@@ -15,31 +15,91 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
 
-<div class="wrapper" id="wrapper-footer">
+<footer class="wrapper" id="wrapper-footer">
 
 	<div class="<?php echo esc_attr( $container ); ?>">
 
 		<div class="row">
 
-			<div class="col-md-12">
+			<div class="contact">
 
-				<footer class="site-footer" id="colophon">
+				<div class="contact-info">
 
-					<div class="site-info">
+					<h3>Kontaktinformasjon</h3>
+					<span class="phone">
+						+47 55 54 51 47
+					</span>
+					
+					<span class="email">
+						kontakt@srib.no
+					</span>
 
-						&copy; Studentradioen i Bergen 2020
+				</div>
 
-					</div><!-- .site-info -->
+				<div class="address">
 
-				</footer><!-- #colophon -->
+					<h3>Adresse</h3>
+					<span class="address">
+						Studentradioen i Bergen <br>
+						Studentsenteret, Parkveien 1 <br>
+						5007 Bergen
+					</span>
 
-			</div><!--col end -->
+				</div>
+
+				<div class="editorial">
+
+					<span class="role">
+						Ansvarlig redaktør: Tarjei Elias Valle Kvamme
+					</span>
+					<span class="role">
+						Nettredaktør: Mina Landøy
+					</span>
+					<span class="role">
+						Programmering: Gutta
+					</span>
+					<span class="copyright">
+						&copy; Studentradioen i Bergen <?php echo date("Y"); ?>
+					</span>
+
+				</div>
+
+			</div>
+
+			<div class="resources">
+				
+				<h3>Ressurser</h3>
+				<?php wp_nav_menu(
+					array(
+						'theme_location'  => 'resources-menu',
+						'menu_class' => 'resources-menu'
+					)
+				); ?>
+				<div class="social">
+
+					<h3>Følg oss på sosiale medier</h3>
+					<?php wp_nav_menu(
+					array(
+						'theme_location'  => 'social-menu',
+						'menu_class' => 'social-menu'
+					)
+				); ?>
+
+				</div>
+
+			</div>
+
+			<div class="sponsor">
+
+				<h3>Med støtte fra Velferdstinget Vest</h3>
+
+			</div>
 
 		</div><!-- row end -->
 
 	</div><!-- container end -->
 
-</div><!-- wrapper end -->
+</footer><!-- wrapper end -->
 
 </div><!-- #page we need this extra closing tag here -->
 
